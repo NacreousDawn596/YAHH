@@ -16,7 +16,6 @@ code {
         monospace;
 }
 
-/* Add this to your existing CSS */
 :root {
     --text-color: #333;
     --bg-color: #fff;

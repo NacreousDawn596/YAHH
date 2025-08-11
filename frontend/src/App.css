@@ -174,13 +174,11 @@ p {
   border-color: #4a5568;
 }
 
-/* Add this to your existing App.css */
 .dark {
   background-color: #1a202c;
   color: #e2e8f0; /* This sets the default text color for dark mode */
 }
 
-/* Specific text color overrides */
 .dark .text-gray-700 {
   color: #e2e8f0;
 }
