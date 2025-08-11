@@ -95,23 +95,16 @@ const LoginPage = ({ onLogin }) => {
                             {loading ? 'Signing in...' : 'Sign in'}
                         </button>
 
-                        <button
+                        {/* <button
                             type="button"
                             onClick={handleDemoLogin}
                             disabled={loading}
                             className="w-full flex justify-center py-3 px-4 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-colors disabled:opacity-50"
                         >
                             {loading ? 'Loading...' : 'Try Demo'}
-                        </button>
+                        </button> */}
                     </div>
                 </form>
-
-                <div className="text-center text-sm text-gray-600">
-                    <p>Demo Credentials:</p>
-                    <p>Email: john.smith@company.com</p>
-                    <p>Password: password123</p>
-                    <p className="mt-2">Admin: admin@yahh.local / admin123</p>
-                </div>
             </div>
         </div>
     );
