@@ -1,0 +1,45 @@
+services:
+  backend:
+    build: ./backend
+    container_name: yahh-backend
+    ports:
+      - "3310:3310"
+    volumes:
+      - ./backend:/app
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: BP123
+      DB_NAME: YAHHdb
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    container_name: yahh-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_BACKEND_URL: http://localhost:3310
+    depends_on:
+      - backend
+
+  db:
+    image: mariadb:11.4
+    container_name: yahh-db
+    environment:
+      MARIADB_ROOT_PASSWORD: BP123
+      MARIADB_DATABASE: YAHHdb
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-u", "root", "-pBP123"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  mysql-data:
